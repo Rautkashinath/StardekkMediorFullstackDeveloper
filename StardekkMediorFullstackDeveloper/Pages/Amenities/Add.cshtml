@@ -1,0 +1,17 @@
+﻿@page
+@model StardekkMediorFullstackDeveloper.AddModel
+@{
+    ViewData["Title"] = "Add";
+    ViewData["ShowHeader"] = true;
+}
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="ViewModel.Name">Name</label>
+        <input asp-for="ViewModel.Name" type="text" class="form-control" aria-describedby="amenityHelp" placeholder="Enter amenity name">
+        <span asp-validation-for="ViewModel.Name" class="text-danger"></span>
+        <small id="amenityHelp" class="form-text text-muted">Some examples: free wi-fi, netflix, espresso machine, hot tub, ...</small>
+    </div>
+    <button type="submit" class="btn btn-primary">Add amenity</button>
+</form>
+

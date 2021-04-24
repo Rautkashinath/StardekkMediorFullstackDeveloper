@@ -1,0 +1,39 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+
+<h1 class="mt-3">Stardekk &times; <small>Fullstack Developer</small></h1>
+<hr />
+<p>
+    Hi, welcome! This page contains the briefing for the technical test in your potential role as a fullstack developer at Stardekk &times;.
+    The goal of the project is to create a management tool for <code>Roomtypes</code> & <code>Rooms</code>. We've already done the <code>Amenities</code> part for you which you can use as an example. However the developer was a bit sloppy, it will need some fixing!
+</p>
+<p>We've installed a local database for you to use <small>(SqlLite)</small> which already contains the basic structure. Please read the entire briefing before you start coding.</p>
+<hr />
+<h4>Part 1: Update the Amenities interface</h4>
+<p>
+    Seems like our developer was in a hurry, can you fix the following please?
+    <ul>
+        <li class="mb-2">The validation messages on the <code>add Amenity form</code> are not visible to the user. Can you make the required changes so the user gets a clear error message when the input is incorrect? You can find the validation rules on the <code>AddAmenityViewModel</code> class.</li>
+        <li class="mb-2">Implement a repository pattern (of your choosing, for example: Unit of Work) so we can easily re-use the code. The example in the Amenities page is clearly a no-go!</li>
+        <li>There is a typo in the column name of the "Amanities" table, this needs to change to "Amenities". Can you change it by using a database migration?</li>
+    </ul>
+</p>
+<h4>Part 2: Roomtypes & Rooms</h4>
+<p>
+    Build a CRUD page for both the <code>Roomtypes</code> and <code>Rooms</code> objects.
+    The pages need to include <strong>Validation</strong> both on Client and Server level. Usage of scaffolding is encouraged. <small>(Please update the <code>disabled A elements</code> on this page for easy navigation.)</small>
+
+    Can you also show us that you are able to:
+
+    <ul>
+        <li>Perform a raw SQL query?</li>
+        <li>Implement (& describe your thoughts) a No-Tracking query</li>
+    </ul>
+</p>
+<a class="btn btn-secondary" asp-page="amenities/list">Manage amenities</a>
+<a class="btn btn-outline-secondary disabled" asp-page="amenities/list">Manage roomtypes</a>
+<a class="btn btn-outline-secondary disabled" asp-page="amenities/list">Manage rooms</a>
