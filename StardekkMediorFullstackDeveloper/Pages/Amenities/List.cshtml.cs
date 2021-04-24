@@ -22,7 +22,7 @@ namespace StardekkMediorFullstackDeveloper
         {
             using(var db = new StardekkDatabaseContext())
             {
-                this.Amenities = await db.Amanities.ToListAsync();
+                this.Amenities = await db.Amenities.ToListAsync();
             }
         }
     }
