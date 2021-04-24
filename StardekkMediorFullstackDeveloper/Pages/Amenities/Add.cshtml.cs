@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using StardekkMediorFullstackDeveloper.Models;
+using StardekkMediorFullstackDeveloper.Repositories;
 using StardekkMediorFullstackDeveloper.ViewModels;
 
 namespace StardekkMediorFullstackDeveloper
@@ -24,14 +25,12 @@ namespace StardekkMediorFullstackDeveloper
             if(ModelState.IsValid)
             {
                 // Store the entered amenity in our local database
-                using (var db = new StardekkDatabaseContext())
-                {
-                    db.Add(new Amenity() {
-                        Name = ViewModel.Name
-                    });
-
-                    await db.SaveChangesAsync();
-                }
+                UnitOfWork unitOfWork = new UnitOfWork();
+                unitOfWork.Amenities.Add(new Amenity()
+                                        {
+                                            Name = ViewModel.Name
+                                        });
+                unitOfWork.Complete();
 
                 return Redirect("/amenities/list");
             }

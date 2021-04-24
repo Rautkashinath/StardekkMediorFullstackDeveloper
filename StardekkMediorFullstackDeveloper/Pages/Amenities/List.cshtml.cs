@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using StardekkMediorFullstackDeveloper.Models;
+using StardekkMediorFullstackDeveloper.Repositories;
 
 namespace StardekkMediorFullstackDeveloper
 {
@@ -20,10 +21,8 @@ namespace StardekkMediorFullstackDeveloper
 
         private async Task InitAsync()
         {
-            using(var db = new StardekkDatabaseContext())
-            {
-                this.Amenities = await db.Amenities.ToListAsync();
-            }
+            UnitOfWork unitOfWork = new UnitOfWork();
+            this.Amenities = unitOfWork.Amenities.GetAll().ToList();
         }
     }
 }
