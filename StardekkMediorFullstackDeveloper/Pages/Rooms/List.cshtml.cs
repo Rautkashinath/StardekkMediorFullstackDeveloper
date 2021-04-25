@@ -1,20 +1,19 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using StardekkMediorFullstackDeveloper.Interfaces;
 using StardekkMediorFullstackDeveloper.Models;
 
-namespace StardekkMediorFullstackDeveloper
+namespace StardekkMediorFullstackDeveloper.Pages.Rooms
 {
     public class ListModel : PageModel
     {
-        public List<Amenity> Amenities { get; set; }
+        public List<Room> Room { get;set; }
 
-        public void OnGetAsync()
+        public void OnGet()
         {
             IUnitOfWork unitOfWork = new UnitOfWork();
-            this.Amenities = unitOfWork.Amenities.GetAll().ToList();
+            Room = unitOfWork.Rooms.GetAll().ToList();
         }
     }
 }

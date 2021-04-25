@@ -50,5 +50,11 @@ namespace StardekkMediorFullstackDeveloper.Repositories
         {
             _databaseContext.Set<T>().RemoveRange(entities);
         }
+
+        public void Update(T entity)
+        {
+            _databaseContext.Set<T>().Attach(entity);
+            _databaseContext.Entry(entity).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+        }
     }
 }

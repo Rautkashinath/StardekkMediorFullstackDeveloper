@@ -1,0 +1,36 @@
+﻿@page
+@model StardekkMediorFullstackDeveloper.Pages.Rooms.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Room Details</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Room.CreationDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Room.CreationDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Room.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Room.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Room.RoomNumber)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Room.RoomNumber)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Room.Id">Edit</a> |
+    <a asp-page="./List">Back to List</a>
+</div>

@@ -1,7 +1,8 @@
 ﻿using StardekkMediorFullstackDeveloper.Interfaces;
 using StardekkMediorFullstackDeveloper.Models;
+using StardekkMediorFullstackDeveloper.Repositories;
 
-namespace StardekkMediorFullstackDeveloper.Repositories
+namespace StardekkMediorFullstackDeveloper
 {
     public class UnitOfWork : IUnitOfWork
     {
@@ -9,10 +10,13 @@ namespace StardekkMediorFullstackDeveloper.Repositories
         
         public IAmenityRepository Amenities { get; private set; }
 
+        public IRoomRepository Rooms { get; private set; }
+
         public UnitOfWork()
         {
             _databaseContext = new StardekkDatabaseContext();
             Amenities = new AmenityRepository(_databaseContext);
+            Rooms = new RoomRepository(_databaseContext);
         }
 
         public int Complete()

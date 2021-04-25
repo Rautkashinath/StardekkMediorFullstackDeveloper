@@ -1,0 +1,50 @@
+﻿@page
+@model StardekkMediorFullstackDeveloper.Pages.Rooms.ListModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>List Of Rooms</h1>
+
+<p>
+    <a asp-page="Add" class="text-success font-weight-bold">Add New Room</a>
+    <a asp-page="../amenities/List" class="text-right">Go to Amenities</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Room[0].RoomNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Room[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Room[0].CreationDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Room)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RoomNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreationDate)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-page="./Delete"  asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
