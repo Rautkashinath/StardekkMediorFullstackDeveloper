@@ -1,0 +1,62 @@
+﻿@page
+@model StardekkMediorFullstackDeveloper.Pages.RoomTypes.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>List of Room Types</h1>
+
+<p>
+    <a asp-page="Add" class="text-success font-weight-bold">Add New Room Type</a>
+    <a asp-page="../amenities/list" class="text-right">Go to Amenities</a>
+    <a asp-page="../rooms/index" class="text-right">Go to Rooms</a>
+</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RoomType[0].CreationDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RoomType[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RoomType[0].DefaultOccupancy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RoomType[0].MinimumOccupancy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RoomType[0].MaximumOccupancy)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.RoomType) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreationDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DefaultOccupancy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MinimumOccupancy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaximumOccupancy)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

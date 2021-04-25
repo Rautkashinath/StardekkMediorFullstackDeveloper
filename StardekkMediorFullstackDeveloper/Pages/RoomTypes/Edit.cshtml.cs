@@ -2,17 +2,24 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using StardekkMediorFullstackDeveloper.Interfaces;
 using StardekkMediorFullstackDeveloper.Models;
-using StardekkMediorFullstackDeveloper.ViewModels;
 
-namespace StardekkMediorFullstackDeveloper.Pages.Rooms
+namespace StardekkMediorFullstackDeveloper.Pages.RoomTypes
 {
-    public class AddModel : PageModel
+    public class EditModel : PageModel
     {
         [BindProperty]
-        public Room Room { get; set; }
+        public RoomType RoomType { get; set; }
 
-        public IActionResult OnGet()
+        public IActionResult OnGet(int id)
         {
+            IUnitOfWork unitOfWork = new UnitOfWork();
+            RoomType = unitOfWork.RoomTypes.GetById(id);
+
+            if (RoomType == null)
+            {
+                return NotFound();
+            }
+
             return Page();
         }
 
@@ -22,7 +29,7 @@ namespace StardekkMediorFullstackDeveloper.Pages.Rooms
             {
                 IUnitOfWork unitOfWork = new UnitOfWork();
 
-                unitOfWork.Rooms.Add(Room);
+                unitOfWork.RoomTypes.Update(RoomType);
                 unitOfWork.Complete();
 
                 return RedirectToPage("./Index");

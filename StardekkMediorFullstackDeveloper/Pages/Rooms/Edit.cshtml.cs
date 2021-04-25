@@ -10,25 +10,18 @@ namespace StardekkMediorFullstackDeveloper.Pages.Rooms
     public class EditModel : PageModel
     {
         [BindProperty]
-        public AddRoomViewModel RoomViewModel { get; set; }
+        public Room Room { get; set; }
 
         public IActionResult OnGet(int id)
         {
             IUnitOfWork unitOfWork = new UnitOfWork();
             
-            Room room = unitOfWork.Rooms.GetById(id);
+            Room = unitOfWork.Rooms.GetById(id);
             
-            if (room == null)
+            if (Room == null)
             {
                 return NotFound();
             }
-
-            RoomViewModel = RoomViewModel ?? new AddRoomViewModel();
-
-            RoomViewModel.Id = room.Id;
-            RoomViewModel.Name = room.Name;
-            RoomViewModel.CreationDate = room.CreationDate.DateTime;
-            RoomViewModel.RoomNumber = room.RoomNumber;
 
             return Page();
         }
@@ -39,18 +32,10 @@ namespace StardekkMediorFullstackDeveloper.Pages.Rooms
             {
                 IUnitOfWork unitOfWork = new UnitOfWork();
 
-                var room = new Room
-                {
-                    Id = RoomViewModel.Id,
-                    CreationDate = RoomViewModel.CreationDate,
-                    RoomNumber = RoomViewModel.RoomNumber,
-                    Name = RoomViewModel.Name
-                };
-
-                unitOfWork.Rooms.Update(room);
+                unitOfWork.Rooms.Update(Room);
                 unitOfWork.Complete();
 
-                return RedirectToPage("./List");
+                return RedirectToPage("./Index");
             }
 
             return Page();

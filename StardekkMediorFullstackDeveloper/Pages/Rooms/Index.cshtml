@@ -1,5 +1,5 @@
 ﻿@page
-@model StardekkMediorFullstackDeveloper.Pages.Rooms.ListModel
+@model StardekkMediorFullstackDeveloper.Pages.Rooms.IndexModel
 
 @{
     ViewData["Title"] = "Index";
@@ -9,9 +9,10 @@
 
 <p>
     <a asp-page="Add" class="text-success font-weight-bold">Add New Room</a>
-    <a asp-page="../amenities/List" class="text-right">Go to Amenities</a>
+    <a asp-page="../amenities/list" class="text-right">Go to Amenities</a>
+    <a asp-page="../roomtypes/index" class="text-right">Go to RoomTypes</a>
 </p>
-<table class="table">
+<table class="table table-striped">
     <thead>
         <tr>
             <th>

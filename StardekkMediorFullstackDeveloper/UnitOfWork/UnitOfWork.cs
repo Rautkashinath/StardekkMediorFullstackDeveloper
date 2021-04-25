@@ -12,16 +12,19 @@ namespace StardekkMediorFullstackDeveloper
 
         public IRoomRepository Rooms { get; private set; }
 
+        public IRoomTypeRepository RoomTypes { get; private set; }
+
         public UnitOfWork()
         {
             _databaseContext = new StardekkDatabaseContext();
             Amenities = new AmenityRepository(_databaseContext);
             Rooms = new RoomRepository(_databaseContext);
+            RoomTypes = new RoomTypeRepository(_databaseContext);
         }
 
-        public int Complete()
+        public void Complete()
         {
-            return _databaseContext.SaveChanges();
+            _databaseContext.SaveChanges();
         }
 
         public void Dispose()

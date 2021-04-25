@@ -6,7 +6,7 @@ using StardekkMediorFullstackDeveloper.Models;
 
 namespace StardekkMediorFullstackDeveloper.Pages.Rooms
 {
-    public class ListModel : PageModel
+    public class IndexModel : PageModel
     {
         public List<Room> Room { get;set; }
 

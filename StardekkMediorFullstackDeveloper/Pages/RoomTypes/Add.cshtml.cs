@@ -2,32 +2,31 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using StardekkMediorFullstackDeveloper.Interfaces;
 using StardekkMediorFullstackDeveloper.Models;
-using StardekkMediorFullstackDeveloper.ViewModels;
 
-namespace StardekkMediorFullstackDeveloper.Pages.Rooms
+namespace StardekkMediorFullstackDeveloper.Pages.RoomTypes
 {
     public class AddModel : PageModel
     {
-        [BindProperty]
-        public Room Room { get; set; }
-
         public IActionResult OnGet()
         {
             return Page();
         }
 
-        public IActionResult OnPost()
+        [BindProperty]
+        public RoomType RoomType { get; set; }
+
+        public IActionResult OnPostAsync()
         {
             if (ModelState.IsValid)
             {
                 IUnitOfWork unitOfWork = new UnitOfWork();
 
-                unitOfWork.Rooms.Add(Room);
+                unitOfWork.RoomTypes.Add(RoomType);
                 unitOfWork.Complete();
 
                 return RedirectToPage("./Index");
             }
-
+         
             return Page();
         }
     }

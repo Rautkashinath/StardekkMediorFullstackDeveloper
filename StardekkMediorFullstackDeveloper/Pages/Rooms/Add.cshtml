@@ -13,19 +13,19 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="RoomViewModel.CreationDate" class="control-label"></label>
-                <input asp-for="RoomViewModel.CreationDate" class="form-control"/>
-                <span asp-validation-for="RoomViewModel.CreationDate" class="text-danger"></span>
+                <label asp-for="Room.CreationDate" class="control-label"></label>
+                <input asp-for="Room.CreationDate" class="form-control"/>
+                <span asp-validation-for="Room.CreationDate" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="RoomViewModel.RoomNumber" class="control-label"></label>
-                <input asp-for="RoomViewModel.RoomNumber" class="form-control" />
-                <span asp-validation-for="RoomViewModel.RoomNumber" class="text-danger"></span>
+                <label asp-for="Room.RoomNumber" class="control-label"></label>
+                <input asp-for="Room.RoomNumber" class="form-control" />
+                <span asp-validation-for="Room.RoomNumber" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="RoomViewModel.Name" class="control-label"></label>
-                <input asp-for="RoomViewModel.Name" class="form-control" />
-                <span asp-validation-for="RoomViewModel.Name" class="text-danger"></span>
+                <label asp-for="Room.Name" class="control-label"></label>
+                <input asp-for="Room.Name" class="form-control" />
+                <span asp-validation-for="Room.Name" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
@@ -35,7 +35,7 @@
 </div>
 
 <div>
-    <a asp-page="List">Back to List</a>
+    <a asp-page="Index">Back to List</a>
 </div>
 
 @section Scripts {

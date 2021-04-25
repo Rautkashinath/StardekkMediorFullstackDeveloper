@@ -8,6 +8,8 @@ namespace StardekkMediorFullstackDeveloper.Interfaces
         
         IRoomRepository Rooms { get;  }
 
-        int Complete();
+        IRoomTypeRepository RoomTypes { get;  }
+
+        void Complete();
     }
 }

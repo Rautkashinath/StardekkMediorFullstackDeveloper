@@ -36,7 +36,7 @@ namespace StardekkMediorFullstackDeveloper.Pages.Rooms
             unitOfWork.Rooms.Remove(Room);
             unitOfWork.Complete();
 
-            return RedirectToPage("./List");
+            return RedirectToPage("./Index");
         }
     }
 }
