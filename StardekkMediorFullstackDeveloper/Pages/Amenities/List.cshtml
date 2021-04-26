@@ -18,6 +18,9 @@
                 <tr>
                     <th scope="row"><code>@amenity.Id</code></th>
                     <td>@amenity.Name</td>
+                    <td>
+                        <a asp-page="./Details" asp-route-id="@amenity.Id">Details</a>
+                    </td>
                 </tr>
             }
         </tbody>

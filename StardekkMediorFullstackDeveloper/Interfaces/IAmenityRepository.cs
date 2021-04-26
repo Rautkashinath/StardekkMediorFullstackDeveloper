@@ -1,11 +1,22 @@
-﻿using StardekkMediorFullstackDeveloper.Models;
+﻿using System.Collections.Generic;
+using StardekkMediorFullstackDeveloper.Models;
 using StardekkMediorFullstackDeveloper.Repositories;
 
 namespace StardekkMediorFullstackDeveloper.Interfaces
 {
     public interface IAmenityRepository : IGenericRepository<Amenity>
     {
-        /// Not required currently 
-        /// Need to add specific methods related to Amenities only
+        /// <summary>
+        /// Method to demonostrates raw sql queries
+        /// </summary>
+        /// <returns></returns>
+        IEnumerable<Amenity> GetAmenities();
+
+        /// <summary>
+        /// demonstrates No tracking query
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        Amenity GetAmenityById(int id);
     }
 }
